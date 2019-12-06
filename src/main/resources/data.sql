@@ -1,0 +1,54 @@
+INSERT INTO VISITA  ( DATA_VISITA
+      , ENDERECO_CLIENTE
+      , NOME_CLIENTE
+      , REPRESENTANTE_ID
+      , VALOR_DESLOCAMENTO )
+VALUES ('2019-12-12 18:00:00'
+		, 'Rua Maua'
+		, 'Paulo Silva'
+		, 1
+		, 10);
+
+INSERT INTO VISITA  ( DATA_VISITA
+      , ENDERECO_CLIENTE
+      , NOME_CLIENTE
+      , REPRESENTANTE_ID
+      , VALOR_DESLOCAMENTO )
+VALUES ('2019-12-12 18:00:00'
+		, 'Avenida Brigadeiro Luis Antonio'
+		, 'Pedro Cardoso'
+		, 10
+		, 10);
+
+INSERT INTO VISITA  ( DATA_VISITA
+      , ENDERECO_CLIENTE
+      , NOME_CLIENTE
+      , REPRESENTANTE_ID
+      , VALOR_DESLOCAMENTO )
+VALUES ('2019-12-12 18:00:00'
+		, 'Alameda Santos - 3454'
+		, 'Carlos Batista'
+		, 34
+		, 10);
+
+INSERT INTO VISITA  ( DATA_VISITA
+      , ENDERECO_CLIENTE
+      , NOME_CLIENTE
+      , REPRESENTANTE_ID
+      , VALOR_DESLOCAMENTO )
+VALUES ('2019-12-12 18:00:00'
+		, 'Rua Pompeia - 5'
+		, 'Cristiane Alves'
+		, 67
+		, 10);
+
+INSERT INTO VISITA  ( DATA_VISITA
+      , ENDERECO_CLIENTE
+      , NOME_CLIENTE
+      , REPRESENTANTE_ID
+      , VALOR_DESLOCAMENTO )
+VALUES ('2019-12-12 18:00:00'
+		, 'Avenida Paulista - 3030'
+		, 'Aline Sousa'
+		, 6
+		, 10);

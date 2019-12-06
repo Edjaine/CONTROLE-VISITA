@@ -1,7 +1,12 @@
 package br.com.gerenciamento_visitas.gerenciamento.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
 public class Visita {
 	public Visita(int id, Date dataVisita, int representanteId, String nomeCliente, String enderecoCliente,
 			Float valorDeslocamento) {
@@ -12,6 +17,7 @@ public class Visita {
 		EnderecoCliente = enderecoCliente;
 		ValorDeslocamento = valorDeslocamento;
 	}
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id ;
 	private Date DataVisita ;
 	private int RepresentanteId;

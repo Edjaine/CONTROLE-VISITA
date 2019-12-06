@@ -1,5 +1,8 @@
 package br.com.gerenciamento_visitas.gerenciamento.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +14,17 @@ import br.com.gerenciamento_visitas.gerenciamento.teste.MockVisita;
 public class visitaController {
 	
 	@RequestMapping("/")	
-	public VisitaDto get() {
-		Visita visita = new MockVisita().GetVisita();
-		return new VisitaDto(visita);
+	public List<VisitaDto> get() {
+		
+		List<Visita> visitas = new MockVisita().GetVisita();
+		List<VisitaDto> visitasDto = new ArrayList<VisitaDto>();
+		
+		visitas.forEach((v) -> {
+			visitasDto.add(new VisitaDto(v));
+			
+		});
+
+		return visitasDto;
+
 	}		
 }
