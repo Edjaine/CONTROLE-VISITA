@@ -13,14 +13,14 @@ public class VisitaDto {
 		this.enderecoCliente = visita.getEnderecoCliente();
 		this.valorDeslocamento = visita.getValorDeslocamento();
 	}
-	private int id ;
+	private Long id ;
 	private Date dataVisita ;
 	private int representanteId;
 	private String nomeCliente;
 	private String enderecoCliente;
 	private Float valorDeslocamento;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public Date getDataVisita() {

@@ -8,9 +8,13 @@ import javax.persistence.GenerationType;
 
 @Entity
 public class Visita {
-	public Visita(int id, Date dataVisita, int representanteId, String nomeCliente, String enderecoCliente,
+	public Visita() {
+		
+	}
+	
+	public Visita(long i, Date dataVisita, int representanteId, String nomeCliente, String enderecoCliente,
 			Float valorDeslocamento) {
-		Id = id;
+		Id = i;
 		DataVisita = dataVisita;
 		RepresentanteId = representanteId;
 		NomeCliente = nomeCliente;
@@ -18,16 +22,16 @@ public class Visita {
 		ValorDeslocamento = valorDeslocamento;
 	}
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Id ;
+	private Long Id ;
 	private Date DataVisita ;
 	private int RepresentanteId;
 	private String NomeCliente;
 	private String EnderecoCliente;
 	private Float ValorDeslocamento;
-	public int getId() {
+	public Long getId() {
 		return Id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 	public Date getDataVisita() {
