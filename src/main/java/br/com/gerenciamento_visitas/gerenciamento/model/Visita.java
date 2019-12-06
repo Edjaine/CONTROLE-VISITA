@@ -1,8 +1,12 @@
 package br.com.gerenciamento_visitas.gerenciamento.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import br.com.gerenciamento_visitas.gerenciamento.controller.form.VisitaForm;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -20,6 +24,13 @@ public class Visita {
 		NomeCliente = nomeCliente;
 		EnderecoCliente = enderecoCliente;
 		ValorDeslocamento = valorDeslocamento;
+	}
+	public Visita(VisitaForm visitaForm) {
+		DataVisita = new Date();
+		RepresentanteId = visitaForm.getRepresentanteId();
+		NomeCliente = visitaForm.getNomeCliente();
+		EnderecoCliente = visitaForm.getEnderecoCliente();
+		ValorDeslocamento = visitaForm.getValorDeslocamento();
 	}
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id ;
