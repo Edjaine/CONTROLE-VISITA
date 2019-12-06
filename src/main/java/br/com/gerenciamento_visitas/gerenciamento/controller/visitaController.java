@@ -3,6 +3,7 @@ package br.com.gerenciamento_visitas.gerenciamento.controller;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -40,12 +41,11 @@ public class visitaController {
 		visitas.forEach((v) -> {
 			visitasDto.add(new VisitaDto(v));			
 		});
-
 		return visitasDto;
-
 	}	
 	
 	@PostMapping	
+	@Transactional
 	public ResponseEntity<VisitaDto> cadastra(@RequestBody @Valid VisitaForm form, UriComponentsBuilder uriBuilder) {
 		Visita visita = form.converter();
 		visitaRepository.save(visita);
@@ -56,13 +56,21 @@ public class visitaController {
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<VisitaDto> atualiza(@PathVariable long id, @RequestBody VisitaForm form, UriComponentsBuilder uriBuilder){
-		
-		Visita visita = form.atualizar(visitaRepository, id);
-		return ResponseEntity.ok(new VisitaDto(visita));
+		Optional<Visita> optional = visitaRepository.findById(id);
+		if(optional.isPresent()) {
+			Visita visita = form.atualizar(visitaRepository, id);
+			return ResponseEntity.ok(new VisitaDto(visita));
+		}		
+		return ResponseEntity.notFound().build();
 	}
 	@DeleteMapping("/{id}")
+	@Transactional
 	public ResponseEntity<?> remove(@PathVariable long id){
-		visitaRepository.deleteById(id);
-		return ResponseEntity.ok().build();
+		Optional<Visita> optional = visitaRepository.findById(id);
+		if(optional.isPresent()) {
+			visitaRepository.deleteById(id);
+			return ResponseEntity.ok().build();
+		}
+		return ResponseEntity.notFound().build();
 	}
 }
