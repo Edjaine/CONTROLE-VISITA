@@ -1,0 +1,34 @@
+//Dockerfile
+
+FROM java:8
+EXPOSE 8080
+COPY . /var/www
+WORKDIR /var/www
+ENTRYPOINT ["java","-jar", "gerenciamento-0.0.1-SNAPSHOT.jar"]
+
+
+//docker-compose
+
+
+version: '3'
+services:
+   visita:
+      build:
+         dockerfile: ./Dockerfile
+         context: .
+      image: visita
+      container_name: visita
+      ports:
+         - "80:80"
+      networks:
+         - rede-producao
+networks:
+   rede-producao:
+      driver: bridge
+
+
+
+// comandos
+
+docker-compose build
+docker-compose up
